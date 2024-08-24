@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>  
+<head>  
+    <title>Dropdown Menu Using Select Tab</title>  
+    <script>  
+        function favTutorial() {  
+            var mylist = document.getElementById("myList");  
+            var selectedSite = mylist.options[mylist.selectedIndex].text;
+            
+            var url;
+            if (selectedSite === "Google") {
+                url = "https://www.google.com";
+            } else if (selectedSite === "Yahoo") {
+                url = "https://www.yahoo.com";
+            } else if (selectedSite === "Google map") {
+                url = "https://www.google.com/maps";
+            } else {
+                url = "#";
+            }
+            
+            document.getElementById("favourite").setAttribute("onclick", "location.href='" + url + "';");
+            document.getElementById("favourite").value = selectedSite; 
+        }  
+    </script>  
+</head>  
+<body>  
+    <form>  
+        <b>Select your site using dropdown list:</b>  
+        <select id="myList" onchange="favTutorial()">  
+            <option>---Choose site---</option>  
+            <option>Google</option>  
+            <option>Yahoo</option>  
+            <option>Google map</option>  
+        </select>  
+        <p>Your selected site is:</p>  
+        <input type="button" id="favourite" class="button_active" value="---Choose site---" />
+    </form>  
+</body>  
+</html>
